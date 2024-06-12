@@ -27,10 +27,14 @@ parameters:
 
 stages:
   - stage: ${{parameters.stage}} 
-    pool: $(AGENT_POOL)                             # ${{parameters.agentPool}} if wish to parameterize and pass in
+    pool: 
+      vmImage: 'ubuntu-latest'
     displayName: ${{parameters.displayName}} 
     dependsOn: ${{parameters.dependsOn}} 
     jobs:
+    - job: InstallFlyway
+      steps:
+        - script: "wget -qO- https://download.red-gate.com/maven/release/org/flywaydb/enterprise/flyway-commandline/10.12.0/flyway-commandline-10.12.0-linux-x64.tar.gz | tar -xvz && sudo ln -s `pwd`/flyway-10.12.0/flyway /usr/local/bin"
 
     - ${{if and(eq( parameters.generateReport, true), eq(parameters.staticCodeAnalysisOnly, true))}}:
       - job: ChangeReport
