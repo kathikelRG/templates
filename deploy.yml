@@ -34,11 +34,12 @@ stages:
     jobs:
     - job: InstallFlyway
       steps:
+        - script: ls
         - script: 'sudo wget -qO- https://download.red-gate.com/maven/release/org/flywaydb/enterprise/flyway-commandline/10.12.0/flyway-commandline-10.12.0-linux-x64.tar.gz | tar -xvz && sudo ln -s `pwd`/flyway-10.12.0/flyway /usr/local/bin'
         #- script: export PATH=/flyway-10.12.0/flyway:$PATH"
         - script: cd /usr/local/bin
         - script: ls
-        - script: flwyay --version
+        #- script: flwyay --version
 
     - ${{if and(eq( parameters.generateReport, true), eq(parameters.staticCodeAnalysisOnly, true))}}:
       - job: ChangeReport
