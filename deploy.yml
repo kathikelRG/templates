@@ -39,7 +39,7 @@ stages:
       - checkout: templates   
       - checkout: self
         name: source
-      - script: flyway --version
+      - script: ls
     
     
 
