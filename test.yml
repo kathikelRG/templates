@@ -1,7 +1,9 @@
-pool:
-  vmImage: 'ubuntu-latest'
-
-container: ubuntu:18.04
-
-steps:
-- script: printenv
+stages:
+- stage: 1
+  pool:
+    vmImage: 'ubuntu-latest'
+  container: ubuntu:18.04
+jobs:
+- job: test
+  steps:
+  - script: printenv
