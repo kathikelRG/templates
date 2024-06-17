@@ -31,14 +31,15 @@ stages:
       vmImage: 'ubuntu-latest'
     displayName: ${{parameters.displayName}} 
     dependsOn: ${{parameters.dependsOn}} 
-    resources:
-      containers:
-      - container: flyway
-        image: redgate/flyway
+
     
     jobs:
     - job: GetVersion
       displayName: Get Version
+      resources:
+        containers:
+        - container: flyway
+          image: redgate/flyway
       steps:
       - checkout: templates
         target: 
