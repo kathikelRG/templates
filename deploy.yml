@@ -47,7 +47,7 @@ stages:
           container: flyway
       - script: flyway --version
         target: 
-        container: flyway
+          container: flyway
     
     
 
