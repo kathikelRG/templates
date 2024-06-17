@@ -28,7 +28,7 @@ parameters:
 stages:
   - stage: ${{parameters.stage}} 
     pool: 
-    vmImage: 'ubuntu-latest'
+      vmImage: 'ubuntu-latest'
     displayName: ${{parameters.displayName}} 
     dependsOn: ${{parameters.dependsOn}} 
     resources:
