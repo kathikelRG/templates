@@ -33,19 +33,19 @@ stages:
     dependsOn: ${{parameters.dependsOn}} 
     
     jobs:
-        pool: 
-      vmImage: 'ubuntu-latest'
-    resources:
-      containers:
-      - container: flyway
-        image: redgate/flyway
-    - job: GetVersion
-      displayName: Get Version
-      steps:
-      - checkout: templates
-      - checkout: self
-        name: source
-      - script: flyway --version
+      pool: 
+        vmImage: 'ubuntu-latest'
+      resources:
+        containers:
+        - container: flyway
+          image: redgate/flyway
+      - job: GetVersion
+        displayName: Get Version
+        steps:
+        - checkout: templates
+        - checkout: self
+          name: source
+        - script: flyway --version
     
     
 
