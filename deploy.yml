@@ -25,11 +25,6 @@ parameters:
   default: ''                                       #[Microsoft]\Pipeline Developers 
                                                     #syntax discussions here: https://github.com/MicrosoftDocs/azure-devops-docs/issues/13320, https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/manual-validation-v0?view=azure-pipelines
 
-resources:
-  containers:
-  - container: flyway
-    image: redgate/flyway
-    
 stages:
   - stage: ${{parameters.stage}} 
     pool: 
