@@ -29,6 +29,7 @@ stages:
   - stage: ${{parameters.stage}} 
     pool: 
       vmImage: 'ubuntu-latest'
+    container: 'redgate/redgate'
     displayName: ${{parameters.displayName}} 
     dependsOn: ${{parameters.dependsOn}} 
 
@@ -38,16 +39,10 @@ stages:
       displayName: Get Version
 
       steps:
-      - checkout: templates
-        target: 
-          container: flyway
+      - checkout: templates   
       - checkout: self
         name: source
-        target: 
-          container: flyway
       - script: flyway --version
-        target: 
-          container: flyway
     
     
 
