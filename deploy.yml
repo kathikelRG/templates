@@ -29,7 +29,7 @@ stages:
   - stage: ${{parameters.stage}} 
     pool: 
       vmImage: 'ubuntu-latest'
-    container: 'redgate/redgate'
+    container: 'redgate/flyway'
     displayName: ${{parameters.displayName}} 
     dependsOn: ${{parameters.dependsOn}} 
 
